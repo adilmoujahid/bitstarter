@@ -5,10 +5,10 @@ var app = express.createServer(express.logger());
 
 
 app.get('/', function(request, response) {
-    fs.writeFile('index.html', 'Hello Node', function (err) {
-	if (err) throw err;
-	console.log('It\'s saved!');
-        });
+
+    var buffer = 25;
+    response.send(fs.readFileSync("index.html"));
+
 });
 
 var port = process.env.PORT || 5000;
